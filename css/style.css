@@ -1,0 +1,97 @@
+/* roboto-regular - cyrillic_latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v30-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/roboto-v30-cyrillic_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/roboto-v30-cyrillic_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/roboto-v30-cyrillic_latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/roboto-v30-cyrillic_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/roboto-v30-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+* {
+    margin: 0 auto;
+}
+body {
+    background: #F1F1F1;
+    width: auto;
+    height: auto;
+    font-family: 'Roboto';
+    color: #505050;
+}
+
+header {
+    font-style: normal;
+}
+
+.profile-div {
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: 64px;
+    background: #FFFFFF;
+    position: absolute;
+    z-index: 2;
+}
+
+.back-profile {
+    margin-left: 32px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    position: absolute;
+}
+
+.text-user-profile {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #505050;
+}
+li {
+    list-style-type: none;
+}
+
+.nav-div {
+    top: 64px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+    background: #FAFAFA;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    gap: 0;
+}
+img {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #505050;
+}
+.active {
+    background: #F1F1F1;
+    right: 1302px;
+}
+.navigation {
+    display: flex;
+    flex-direction: row;
+    width: 286px;
+    margin-left: 32px;
+    font-size: 14px;
+    color: #505050;
+}
+
+.nav-text {
+    display: flex;
+    padding: 0 16px;
+    gap: 8px;
+    height: 40px;
+    align-items: center;
+}
+
