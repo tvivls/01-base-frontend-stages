@@ -76,7 +76,6 @@ a {
 }
 .active {
     background: #F1F1F1;
-    right: 1302px;
 }
 .navigation {
     display: flex;
