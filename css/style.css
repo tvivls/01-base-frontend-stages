@@ -95,3 +95,76 @@ a {
     align-items: center;
 }
 
+main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 136px;
+    margin-left: 32px;
+    text-align: center;
+}
+
+.card {
+    width: 264px;
+    height: 350px;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    background: #FFFFFF;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.card-pic {
+    margin: 32px auto;
+    width: 132px;
+    border-radius: 50%;
+    display: block;
+}
+.name {
+    font-size: 18px;
+    top: 180px;
+}
+.card-text {
+    font-size: 14px;
+    line-height: 16px;
+    color: #8F8F8F;
+    margin-top: 8px;
+}
+.contacts {
+    display: flex;
+    margin-top: 16px;
+    width: 170px;
+}
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.skills-div {
+    background: #FFFFFF;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    margin: 32px auto;
+}
+
+.skills-list {
+    padding: 0;
+    margin-left: 32px;
+    margin-right: 32px;
+    text-align: left;
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+.skills-list li {
+    list-style-type: circle;
+    margin-bottom: 7px;
+}
+
+.skills-list ol li {
+    list-style-type: decimal;
+}
+
+
+
+
