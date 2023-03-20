@@ -2,13 +2,13 @@
     <div class="d-flex justify-content-between align-items-center" style="height: 56px">
         <p class="mb-0">Basic map</p>
         <div>
-            <a class="me-4" style="text-decoration: none" href="#">
+            <a class="me-4" style="text-decoration: none" href="">
                 <img src="../img/union.png" alt="">
             </a>
-            <a class="me-4" style="text-decoration: none" href="map.html">
+            <a class="me-4" style="text-decoration: none" href="#map">
                 <img src="../img/reload.png" alt="">
             </a>
-            <a href="../index.html" style="text-decoration: none">
+            <a href="#main" style="text-decoration: none">
                 <img src="../img/exit.png" alt="">
             </a>
         </div>
@@ -16,27 +16,5 @@
     <div class="spinner-border" role="status" id="preloader">
         <span class="sr-only"></span>
     </div>
-    <div onload="myMap()" class="" id="yandexmap" style="display: none; height: 480px"></div>
+    <div id="yandexmap" style="display: none; height: 480px"></div>
 </div>
-<script>
-    const yandexMap = () => {
-        const map = new ymaps.Map('yandexmap', {
-            center: [56.737155, 37.165405],
-            zoom: 16,
-        });
-        const marker = new ymaps.Placemark([56.737155, 37.165405], {
-            hintContent: 'Replace',
-            balloonContent: 'This is my home',
-        });
-        map.geoObjects.add(marker);
-    }
-
-    function myMap () {
-        const loader = document.querySelector('#preloader');
-        loader.classList.add('visually-hidden');
-        // loader.style.display = "none";
-        const yaMap = document.querySelector('#yandexmap');
-        yaMap.style.display = 'block';
-        ymaps.ready(yandexMap);
-    };
-</script>
