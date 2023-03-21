@@ -1,4 +1,5 @@
-function Router(routes) {
+import myMap from './map.js';
+export default function Router(routes) {
     try {
         if (!routes) {
             throw new Error('Routes param is mandatory');
@@ -54,6 +55,9 @@ Router.prototype = {
             };
             xhttp.open('GET', url, true);
             xhttp.send();
+            if (url === 'src/pages/map.html') {
+                myMap();
+            }
         })(this);
     }
 };

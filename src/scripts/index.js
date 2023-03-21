@@ -1,3 +1,5 @@
+import Router from './router.js';
+import Route from './route.js';
 (function () {
     function init() {
         let router = new Router([

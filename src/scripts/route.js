@@ -1,4 +1,4 @@
-function Route(name, htmlName, defaultRoute) {
+export default function Route(name, htmlName, defaultRoute) {
     try {
         if(!name || !htmlName) {
             throw new Error('Name and htmlName params are mandatories');

@@ -10,10 +10,10 @@ const yandexMap = () => {
     map.geoObjects.add(marker);
 }
 
-    function myMap () {
+export default function myMap () {
     const loader = document.querySelector('#preloader');
-    loader.classList.add('visually-hidden');
+    // loader.classList.add('visually-hidden');
     const yaMap = document.querySelector('#yandexmap');
-    yaMap.style.display = 'block';
+    // yaMap.style.display = 'block';
     ymaps.ready(yandexMap);
 }
