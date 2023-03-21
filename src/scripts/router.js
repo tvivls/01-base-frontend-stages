@@ -15,7 +15,6 @@ const displayTimer = () => {
     id = setInterval(() => {
         const timerDiv = document.querySelector('#time');
         timerDiv.textContent = localStorage.getItem('timer');
-        console.log(timerDiv.textContent = localStorage.getItem('timer'))
     }, 1000);
 }
 
