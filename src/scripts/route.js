@@ -1,7 +1,7 @@
 function Route(name, htmlName, defaultRoute) {
     try {
         if(!name || !htmlName) {
-            throw new Error('error: name and htmlName params are mandatories');
+            throw new Error('Name and htmlName params are mandatories');
         }
         this.constructor(name, htmlName, defaultRoute);
     } catch (e) {
