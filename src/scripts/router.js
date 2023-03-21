@@ -10,6 +10,14 @@ export default function Router(routes) {
         console.error(e);
     }
 }
+let id;
+const displayTimer = () => {
+    id = setInterval(() => {
+        const timerDiv = document.querySelector('#time');
+        timerDiv.textContent = localStorage.getItem('timer');
+        console.log(timerDiv.textContent = localStorage.getItem('timer'))
+    }, 1000);
+}
 
 Router.prototype = {
     routes: undefined,
@@ -55,8 +63,14 @@ Router.prototype = {
             };
             xhttp.open('GET', url, true);
             xhttp.send();
+
             if (url === 'src/pages/map.html') {
                 myMap();
+            }
+            if (url === 'src/pages/timer.html') {
+                displayTimer();
+            } else {
+                clearInterval(id);
             }
         })(this);
     }
