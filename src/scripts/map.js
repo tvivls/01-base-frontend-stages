@@ -10,7 +10,6 @@ const yandexMap = () => {
     map.geoObjects.add(marker);
 }
 
-// window.addEventListener('hashchange',
     function myMap () {
     const loader = document.querySelector('#preloader');
     loader.classList.add('visually-hidden');
@@ -18,18 +17,3 @@ const yandexMap = () => {
     yaMap.style.display = 'block';
     ymaps.ready(yandexMap);
 }
-
-// const time = document.querySelector('#time');
-// let ms = 0;
-// let timer = 0;
-// const start = () => {
-//     timer = setInterval(() => {
-//         ms += 10;
-//         let date = new Date(ms);
-//         time.innerHTML = ('0' + date.getUTCHours()).slice(-2) + ':' +
-//             ('0' + date.getUTCMinutes()).slice(-2) + ':' +
-//             ('0' + date.getUTCSeconds()).slice(-2);
-//     }, 1000)
-// };
-// window.onload = start();
-
