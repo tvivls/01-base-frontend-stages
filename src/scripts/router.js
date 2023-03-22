@@ -18,6 +18,10 @@ const displayTimer = () => {
     }, 1000);
 }
 const displayMap = () => {
+    const mapDiv = document.getElementById('yandexmap');
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('visually-hidden');
+    mapDiv.style.display = 'block';
     ymaps.ready(init);
 }
 
@@ -67,7 +71,7 @@ Router.prototype = {
             xhttp.send();
 
             if (url === 'src/pages/map.html') {
-                setTimeout(displayMap, 100);
+                setTimeout(displayMap, 200);
             }
             if (url === 'src/pages/timer.html') {
                 displayTimer();
