@@ -15,39 +15,62 @@
 .active {
     background-color: #F1F1F1;
 }
-
-body {
+.font {
+    color: #505050;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-family: 'Roboto';
 }
 
 .profile-div {
     height: 64px;
 }
 
-.text-user-profile {
+.font-size {
     font-size: 18px;
 }
 
-li {
+.li {
     list-style-type: none;
 }
 
 .nav-div {
+    top: 64px;
     height: 40px;
     width: 100%;
 }
 
-main {
+.main-div {
     margin-top: 136px;
 }
 
-ul li {
+.ul-li {
     list-style-type: circle;
 }
 
-ol li {
+.ol-li {
     list-style-type: decimal;
 }
-
+.small-font {
+    font-size: 14px;
+}
+.img-size {
+    width: 25px;
+    height: 25px;
+}
+.map-div {
+    height: 568px;
+}
+.map-timer-div {
+    height: 56px;
+}
+.link-decoration{
+    text-decoration: none;
+}
+.timer-div {
+    height: 123px;
+}
+.yaMap {
+    display: none;
+    height: 480px;
+}
