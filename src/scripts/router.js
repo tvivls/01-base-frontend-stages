@@ -1,83 +1,44 @@
-import init from "./map.js";
-export default function Router(routes) {
-    try {
+class Router {
+    constructor(routes) {
         if (!routes) {
             throw new Error('Routes param is mandatory');
         }
-        this.constructor(routes);
-        this.init();
-    } catch (e) {
-        console.error(e);
-    }
-}
-let id;
-const displayTimer = () => {
-    id = setInterval(() => {
-        const timerDiv = document.querySelector('#time');
-        timerDiv.textContent = localStorage.getItem('timer');
-    }, 1000);
-}
-const displayMap = () => {
-    const mapDiv = document.getElementById('yandexmap');
-    const preloader = document.getElementById('preloader');
-    preloader.classList.add('visually-hidden');
-    mapDiv.style.display = 'block';
-    ymaps.ready(init);
-}
-
-Router.prototype = {
-    routes: undefined,
-    rootElem: undefined,
-    constructor: function (routes) {
         this.routes = routes;
         this.rootElem = document.querySelector('main');
-    },
-    init: function () {
-        let r = this.routes;
-        (function(scope, r) {
-            window.addEventListener('hashchange', function (e) {
-                scope.hasChanged(scope, r);
-            });
-        })(this, r);
-        this.hasChanged(this, r);
-    },
-    hasChanged: function(scope, r){
+        this.init();
+    }
+    init() {
+        const routes = this.routes;
+        window.addEventListener('hashchange', e => this.hasChanged(this, routes));
+        this.hasChanged(this, routes);
+    }
+    hasChanged(scope, routes){
         if (window.location.hash.length > 0) {
-            for (let i = 0, length = r.length; i < length; i++) {
-                let route = r[i];
+            routes.map(route => {
                 if(route.isActiveRoute(window.location.hash.substring(1))) {
                     scope.goToRoute(route.htmlName);
                 }
-            }
+            })
         } else {
-            for (let i = 0, length = r.length; i < length; i++) {
-                let route = r[i];
+            routes.map(route => {
                 if(route.default) {
                     scope.goToRoute(route.htmlName);
                 }
-            }
+            })
         }
-    },
-    goToRoute: function (htmlName) {
-        (function(scope) {
-            let url = 'src/pages/' + htmlName,
-                xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    scope.rootElem.innerHTML = this.responseText;
-                }
-            };
-            xhttp.open('GET', url, true);
-            xhttp.send();
-
-            if (url === 'src/pages/map.html') {
-                setTimeout(displayMap, 200);
-            }
-            if (url === 'src/pages/timer.html') {
-                displayTimer();
-            } else {
-                clearInterval(id);
-            }
-        })(this);
     }
-};
+    goToRoute(htmlName) {
+        const scope = this;
+        const url = 'src/pages/' + htmlName;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                scope.rootElem.innerHTML = this.responseText;
+            }
+        };
+        xhttp.open('GET', url, true);
+        xhttp.send();
+    }
+}
+
+export default Router;
