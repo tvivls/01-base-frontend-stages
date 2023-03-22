@@ -1,4 +1,4 @@
-import myMap from './map.js';
+import init from "./map.js";
 export default function Router(routes) {
     try {
         if (!routes) {
@@ -16,6 +16,9 @@ const displayTimer = () => {
         const timerDiv = document.querySelector('#time');
         timerDiv.textContent = localStorage.getItem('timer');
     }, 1000);
+}
+const displayMap = () => {
+    ymaps.ready(init);
 }
 
 Router.prototype = {
@@ -64,7 +67,7 @@ Router.prototype = {
             xhttp.send();
 
             if (url === 'src/pages/map.html') {
-                myMap();
+                setTimeout(displayMap, 100);
             }
             if (url === 'src/pages/timer.html') {
                 displayTimer();
