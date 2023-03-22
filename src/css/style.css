@@ -30,26 +30,18 @@
     font-size: 18px;
 }
 
-.li {
+.delete-list-style {
     list-style-type: none;
 }
 
-.nav-div {
+.navigation {
     top: 64px;
     height: 40px;
     width: 100%;
 }
 
-.main-div {
+.top-indent {
     margin-top: 136px;
-}
-
-.ul-li {
-    list-style-type: circle;
-}
-
-.ol-li {
-    list-style-type: decimal;
 }
 .small-font {
     font-size: 14px;
@@ -58,16 +50,16 @@
     width: 25px;
     height: 25px;
 }
-.map-div {
+.map-height {
     height: 568px;
 }
-.map-timer-div {
+.map-timer-heading {
     height: 56px;
 }
 .link-decoration{
     text-decoration: none;
 }
-.timer-div {
+.timer-height {
     height: 123px;
 }
 .yaMap {
