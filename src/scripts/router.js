@@ -1,3 +1,5 @@
+import displayMap from "./map.js";
+import displayTimer from "./timer.js";
 class Router {
     constructor(routes) {
         if (!routes) {
@@ -14,13 +16,13 @@ class Router {
     }
     hasChanged(scope, routes){
         if (window.location.hash.length > 0) {
-            routes.map(route => {
+            routes.forEach(route => {
                 if(route.isActiveRoute(window.location.hash.substring(1))) {
                     scope.goToRoute(route.htmlName);
                 }
             })
         } else {
-            routes.map(route => {
+            routes.forEach(route => {
                 if(route.default) {
                     scope.goToRoute(route.htmlName);
                 }
@@ -38,6 +40,12 @@ class Router {
         };
         xhttp.open('GET', url, true);
         xhttp.send();
+        if (url === 'src/pages/map.html') {
+            setTimeout(displayMap, 20);
+        }
+        if (url === 'src/pages/timer.html') {
+            setTimeout(displayTimer, 20);
+        }
     }
 }
 
