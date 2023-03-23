@@ -70,3 +70,22 @@
 .preloader-position {
     margin-top: 220px;
 }
+.items-size {
+    width: 18px;
+    height: 18px;
+}
+.items {
+    width: 232px;
+    height: 48px;
+}
+.navigation-box {
+    width: 264px;
+    height: 312px;
+}
+.message-box {
+    width: 264px;
+    height: 190px;
+}
+.skills-box {
+    height: 775px;
+}
