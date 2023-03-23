@@ -65,4 +65,8 @@
 .yaMap {
     display: none;
     height: 480px;
+    width: 1312px;
+}
+.preloader-position {
+    margin-top: 220px;
 }
