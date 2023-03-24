@@ -29,7 +29,10 @@
 .font-size {
     font-size: 18px;
 }
-
+.middle-font-size {
+    line-height: 19px;
+    font-size: 16px;
+}
 .delete-list-style {
     list-style-type: none;
 }
@@ -65,13 +68,11 @@
 .yaMap {
     display: none;
     height: 480px;
-    width: 1312px;
 }
 .preloader-position {
     margin-top: 220px;
 }
 .items-size {
-    width: 18px;
     height: 18px;
 }
 .items {
@@ -79,13 +80,34 @@
     height: 48px;
 }
 .navigation-box {
-    width: 264px;
     height: 312px;
 }
 .message-box {
-    width: 264px;
     height: 190px;
 }
 .skills-box {
     height: 775px;
+}
+.rotate-img {
+    transform: rotate(180deg);
+    width: 11.29px;
+}
+.text-box {
+    height: 88px;
+}
+.send-box {
+    height: 32px;
+    background: #5095EC;
+}
+.sunset{
+    height: 56px;
+}
+.small-img {
+    height: 8.5px;
+}
+.very-small-font {
+    font-size: 12px;
+}
+.icons-width {
+    width: 24px;
 }
