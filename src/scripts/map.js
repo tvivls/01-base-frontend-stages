@@ -10,10 +10,9 @@ function initMap() {
     map.geoObjects.add(marker);
 }
 export default function displayMap() {
-    ymaps.ready(initMap).then(() => {
-        const mapDiv = document.getElementById('yandexmap');
-        const preloader = document.getElementById('preloader');
-        preloader.classList.add('visually-hidden');
-        mapDiv.style.display = 'block';
-    })
+    ymaps.ready(initMap);
+    const mapDiv = document.getElementById('yandexmap');
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('visually-hidden');
+    mapDiv.style.display = 'block';
 }
