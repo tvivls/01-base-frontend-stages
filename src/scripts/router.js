@@ -38,14 +38,20 @@ class Router {
                 scope.rootElem.innerHTML = this.responseText;
             }
         };
+
+        xhttp.addEventListener('readystatechange', () => {
+            if (xhttp.readyState === 4) {
+                if (url === 'src/pages/map.html') {
+                    displayMap();
+                }
+                if (url === 'src/pages/timer.html') {
+                    displayTimer();
+                }
+            }
+        });
+
         xhttp.open('GET', url, true);
         xhttp.send();
-        if (url === 'src/pages/map.html') {
-            setTimeout(displayMap, 20);
-        }
-        if (url === 'src/pages/timer.html') {
-            setTimeout(displayTimer, 20);
-        }
     }
 }
 
