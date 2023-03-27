@@ -10,8 +10,12 @@ export default function displayTimer() {
     const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
     const seconds = (elapsedTime % 60).toString().padStart(2, '0');
     if (window.location.hash === '#timer') {
+        startTimer();
         const timer = document.querySelector('#time');
         timer.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    if (window.location.hash !== '#timer' && timerId !== 0) {
+        stopTimer();
     }
 }
 function startTimer() {
@@ -20,11 +24,9 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timerId);
+    timerId = 0;
 }
 
 window.addEventListener('load', () => {
     startTime = new Date();
-    startTimer();
 });
-
-window.addEventListener('beforeunload', stopTimer);
