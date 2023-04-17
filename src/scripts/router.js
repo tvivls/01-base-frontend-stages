@@ -11,7 +11,10 @@ class Router {
     }
     init() {
         const routes = this.routes;
-        window.addEventListener('hashchange', e => this.hasChanged(this, routes));
+        window.addEventListener('popstate', () => this.hasChanged(this, routes));
+        window.addEventListener('pushState', () => {
+            window.addEventListener('popstate', () => this.hasChanged(this, routes));
+        });
         this.hasChanged(this, routes);
     }
     hasChanged(scope, routes){
@@ -30,28 +33,26 @@ class Router {
         }
     }
     goToRoute(htmlName) {
-        const scope = this;
         const url = 'src/pages/' + htmlName;
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                scope.rootElem.innerHTML = this.responseText;
-            }
-        };
-
-        xhttp.addEventListener('readystatechange', () => {
-            if (xhttp.readyState === 4) {
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('The response was not "ok"');
+            })
+            .then(data => {
+                this.rootElem.innerHTML = data;
                 if (url === 'src/pages/map.html') {
                     displayMap();
                 }
                 if (url === 'src/pages/timer.html') {
                     displayTimer();
                 }
-            }
-        });
-
-        xhttp.open('GET', url, true);
-        xhttp.send();
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
     }
 }
 
