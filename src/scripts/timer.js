@@ -1,11 +1,8 @@
-let startTime;
-let currentTime;
-let elapsedTime = 0;
+const startTime = new Date();
 let timerId;
 
 export default function displayTimer() {
-    currentTime = new Date();
-    elapsedTime = Math.floor((currentTime - startTime) / 1000);
+    const elapsedTime = Math.floor((new Date() - startTime) / 1000);
     const hours = Math.floor(elapsedTime / 3600).toString().padStart(2, '0');
     const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
     const seconds = (elapsedTime % 60).toString().padStart(2, '0');
@@ -26,7 +23,3 @@ function stopTimer() {
     clearInterval(timerId);
     timerId = 0;
 }
-
-window.addEventListener('load', () => {
-    startTime = new Date();
-});
