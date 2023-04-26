@@ -27,9 +27,7 @@ class Router {
     }
     hasChanged(routes){
         const location = window.location.pathname;
-        const lastIndex = location.lastIndexOf('/');
-        const currPath = `/${location.slice(lastIndex + 1)}`;
-        if (!currPath.includes('/index.html')) {
+        if (location.length > 0) {
             routes.forEach(route => {
                 if(route.isActiveRoute(location)) {
                     this.goToRoute(route.htmlName);
