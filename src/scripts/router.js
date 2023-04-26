@@ -11,13 +11,11 @@ class Router {
     }
     init() {
         const routes = this.routes;
-        const href = window.location.href;
         document.addEventListener('click', event => {
             const { target } = event;
             if (!target.matches('li a')) return;
             event.preventDefault();
-            const currentHref = `${href}${event.target.href.slice(event.target.href.lastIndexOf('/'))}`
-            window.history.pushState({}, '', currentHref);
+            window.history.pushState({}, '', event.target.href);
             this.hasChanged(routes);
 
         });
@@ -28,7 +26,7 @@ class Router {
         this.hasChanged(routes);
     }
     hasChanged(routes){
-        const location = window.location.href;
+        const location = window.location.pathname;
         const lastIndex = location.lastIndexOf('/');
         const currPath = `/${location.slice(lastIndex + 1)}`;
         if (!currPath.includes('/index.html')) {
