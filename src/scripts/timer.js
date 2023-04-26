@@ -7,8 +7,8 @@ export default function displayTimer() {
     const minutes = Math.floor((elapsedTime % 3600) / 60).toString().padStart(2, '0');
     const seconds = (elapsedTime % 60).toString().padStart(2, '0');
 
-    const path = window.location.pathname;
-    const isTimer = path.slice(path.lastIndexOf('/') + 1) === 'timer'
+    const path = window.location.href;
+    const isTimer = path.slice(path.lastIndexOf('/') + 1) === 'timer';
     if (isTimer) {
         startTimer();
         const timer = document.querySelector('#time');

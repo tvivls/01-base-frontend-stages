@@ -11,30 +11,35 @@ class Router {
     }
     init() {
         const routes = this.routes;
-
+        const href = window.location.href;
         document.addEventListener('click', event => {
             const { target } = event;
-            if (!target.matches('li a')) {
-                return;
-            }
+            if (!target.matches('li a')) return;
             event.preventDefault();
-            this.urlRoute(event);
+            const currentHref = `${href}${event.target.href.slice(event.target.href.lastIndexOf('/'))}`
+            window.history.pushState({}, '', currentHref);
+            this.hasChanged(routes);
 
         });
-        window.route = this.urlRoute;
-        window.onpopstate = this.hasChanged(routes);
+        window.addEventListener('popstate', () => this.hasChanged(routes));
+        window.addEventListener('pushState', () => {
+            window.addEventListener('popstate', () => this.hasChanged(routes));
+        });
         this.hasChanged(routes);
     }
-    urlRoute = (event) => {
-        event.preventDefault();
-        window.history.pushState({}, '', event.target.href);
-        this.hasChanged(this.routes);
-    }
     hasChanged(routes){
-        const location = window.location.pathname;
-        if (location.length > 0) {
+        const location = window.location.href;
+        const lastIndex = location.lastIndexOf('/');
+        const currPath = `/${location.slice(lastIndex + 1)}`;
+        if (!currPath.includes('/index.html')) {
             routes.forEach(route => {
                 if(route.isActiveRoute(location)) {
+                    this.goToRoute(route.htmlName);
+                }
+            })
+        } else {
+            routes.forEach(route => {
+                if(route.default) {
                     this.goToRoute(route.htmlName);
                 }
             })
