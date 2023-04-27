@@ -14,8 +14,7 @@ class Route {
 
     isActiveRoute(location) {
         const lastIndex = location.lastIndexOf('/')
-        const currentPath = `/${location.slice(lastIndex + 1)}`
-        if (currentPath === '/index.html') return this.default;
+        const currentPath = `/${location.slice(lastIndex + 1)}`;
         return currentPath === this.name;
     }
 }

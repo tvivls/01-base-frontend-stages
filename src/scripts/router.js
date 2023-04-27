@@ -27,19 +27,15 @@ class Router {
     }
     hasChanged(routes){
         const location = window.location.pathname;
-        if (location.length > 0) {
-            routes.forEach(route => {
-                if(route.isActiveRoute(location)) {
+        routes.forEach(route => {
+            if (location.endsWith(route.name)) {
+                if (route.isActiveRoute(location)) {
                     this.goToRoute(route.htmlName);
                 }
-            })
-        } else {
-            routes.forEach(route => {
-                if(route.default) {
-                    this.goToRoute(route.htmlName);
-                }
-            })
-        }
+            } else if (route.default) {
+                this.goToRoute(route.htmlName);
+            }
+        })
     }
     goToRoute(htmlName) {
         const url = 'src/pages/' + htmlName;
