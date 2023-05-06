@@ -12,17 +12,17 @@ class Router {
     init() {
         const routes = this.routes;
         document.addEventListener('click', event => {
+            event.preventDefault();
             const { target } = event;
             if (!target.matches('li a')) return;
-            event.preventDefault();
-            window.history.pushState({}, '', event.target.href);
+            window.history.pushState({}, '', target.href);
             this.hasChanged(routes);
-
         });
         window.addEventListener('popstate', () => this.hasChanged(routes));
         window.addEventListener('pushState', () => {
             window.addEventListener('popstate', () => this.hasChanged(routes));
         });
+        window.addEventListener('load', () => localStorage.setItem('mainPage', window.location.href))
         this.hasChanged(routes);
     }
     hasChanged(routes){
