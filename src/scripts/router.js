@@ -1,5 +1,6 @@
 import displayMap from "./map.js";
 import displayTimer from "./timer.js";
+import activePage from "./activePage.js";
 class Router {
     constructor(routes) {
         if (!routes) {
@@ -16,13 +17,13 @@ class Router {
             const { target } = event;
             if (!target.matches('li a')) return;
             window.history.pushState({}, '', target.href);
+            activePage(target.parentNode);
             this.hasChanged(routes);
         });
         window.addEventListener('popstate', () => this.hasChanged(routes));
         window.addEventListener('pushState', () => {
             window.addEventListener('popstate', () => this.hasChanged(routes));
         });
-        window.addEventListener('load', () => localStorage.setItem('mainPage', window.location.href))
         this.hasChanged(routes);
     }
     hasChanged(routes){
@@ -31,6 +32,7 @@ class Router {
             if (location.endsWith(route.name)) {
                 if (route.isActiveRoute(location)) {
                     this.goToRoute(route.htmlName);
+                    localStorage.setItem('mainPage', window.location.href);
                 }
             } else if (route.default) {
                 this.goToRoute(route.htmlName);
@@ -48,10 +50,10 @@ class Router {
             })
             .then(data => {
                 this.rootElem.innerHTML = data;
-                if (url === 'src/pages/map.html') {
+                if (url.endsWith('/map.html')) {
                     displayMap();
                 }
-                if (url === 'src/pages/timer.html') {
+                if (url.endsWith('/timer.html')) {
                     displayTimer();
                 }
             })
