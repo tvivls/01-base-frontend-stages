@@ -17,10 +17,8 @@ class Router {
             const { target } = event;
             if (!target.matches('li a')) return;
             window.history.pushState({}, '', target.href);
-            activePage(target.parentNode);
             this.hasChanged(routes);
         });
-        localStorage.setItem('mainPage', window.location.href);
         window.addEventListener('popstate', () => this.hasChanged(routes));
         window.addEventListener('pushState', () => {
             window.addEventListener('popstate', () => this.hasChanged(routes));
@@ -33,7 +31,7 @@ class Router {
             if (location.endsWith(route.name)) {
                 if (route.isActiveRoute(location)) {
                     this.goToRoute(route.htmlName);
-                    localStorage.setItem('currentPage', window.location.href);
+                    activePage(document.querySelector(`#nav-${route.name.slice(1)}`), routes);
                 }
             } else if (route.default) {
                 this.goToRoute(route.htmlName);
