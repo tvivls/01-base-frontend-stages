@@ -1,1 +1,16 @@
-<iframe src="index.html" class="window-size"></iframe>
+<!doctype html>
+<html>
+<head>
+    <link rel="import" href="index.html">
+</head>
+<body>
+    <script>
+        const htmlImport = document.querySelector('link[rel="import"]');
+        const htmlDoc = htmlImport.import;
+        const htmlMessage = htmlDoc.querySelector('body');
+        document.body.appendChild(htmlMessage.cloneNode(true));
+    </script>
+</body>
+</html>
+
+
