@@ -3,6 +3,8 @@
 </div>
 
 <script>
-    const newPath = localStorage.getItem('mainPage')
-    window.location.replace(newPath);
+    const mainPath = localStorage.getItem('mainPage');
+    const lastPath = localStorage.getItem('currentPage');
+    window.location.replace(mainPath);
+    window.location.replace(lastPath);
 </script>
