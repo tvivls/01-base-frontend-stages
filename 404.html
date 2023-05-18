@@ -1,16 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="import" href="index.html">
+    <style>
+        .reuse-html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        const htmlImport = document.querySelector('link[rel="import"]');
-        const htmlDoc = htmlImport.import;
-        const htmlMessage = htmlDoc.querySelector('body');
-        document.body.appendChild(htmlMessage.cloneNode(true));
-    </script>
+<embed src="index.html" type="text/html" width="100%" height="100%" class="reuse-html">
 </body>
 </html>
-
-
