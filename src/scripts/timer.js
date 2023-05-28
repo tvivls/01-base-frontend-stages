@@ -12,7 +12,7 @@ export default function displayTimer() {
     if (isTimer) {
         startTimer();
         const timer = document.querySelector('#time');
-        timer.textContent = `${hours}:${minutes}:${seconds}`;
+        if (timer) timer.textContent = `${hours}:${minutes}:${seconds}`;
     }
     if (!isTimer && timerId !== 0) {
         stopTimer();

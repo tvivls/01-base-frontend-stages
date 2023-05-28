@@ -1,3 +1,4 @@
+let mapObj;
 function initMap() {
     const map = new ymaps.Map('yandexmap', {
         center: [56.73630928543602,37.16224752339015],
@@ -8,11 +9,17 @@ function initMap() {
         balloonContent: 'Дом'
     });
     map.geoObjects.add(marker);
+    mapObj = map;
 }
 export default function displayMap() {
-    ymaps.ready(initMap);
+    ymaps.ready(() => {
+        if (!mapObj) { // проверка, существует ли уже карта на странице
+            initMap();
+        }
+    });
     const mapDiv = document.getElementById('yandexmap');
     const preloader = document.getElementById('preloader');
-    preloader.classList.add('visually-hidden');
-    mapDiv.style.display = 'block';
+    preloader?.classList.add('visually-hidden');
+    mapDiv && (mapDiv.style.display = 'block');
+    mapObj = undefined;
 }

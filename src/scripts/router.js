@@ -1,6 +1,7 @@
-import displayMap from "./map.js";
-import displayTimer from "./timer.js";
-import activePage from "./activePage.js";
+import displayMap from "./map";
+import displayTimer from "./timer";
+import activePage from "./activePage";
+
 class Router {
     constructor(routes) {
         if (!routes) {
@@ -39,26 +40,15 @@ class Router {
         })
     }
     goToRoute(htmlName) {
-        const url = 'src/pages/' + htmlName;
-        fetch(url)
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
-                }
-                throw new Error('The response was not "ok"');
-            })
-            .then(data => {
-                this.rootElem.innerHTML = data;
-                if (url.endsWith('/map.html')) {
-                    displayMap();
-                }
-                if (url.endsWith('/timer.html')) {
-                    displayTimer();
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
+        const url = htmlName;
+        const location = window.location.pathname;
+        this.rootElem.innerHTML = url;
+        if (location.endsWith('/map')) {
+            displayMap();
+        }
+        if (location.endsWith('/timer')) {
+            displayTimer();
+        }
     }
 }
 
