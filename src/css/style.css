@@ -20,11 +20,6 @@
     font-style: normal;
     font-weight: 400;
 }
-
-.profile-box {
-    height: 64px;
-}
-
 .big-font {
     font-size: 18px;
 }
@@ -38,36 +33,19 @@
 .tiny-font {
     font-size: 12px;
 }
-
-.nav-position {
-    top: 64px;
-    height: 40px;
-    width: 100%;
-}
 .nav-icon {
     width: 232px;
     height: 48px;
 }
-
 .top-indent {
     margin-top: 136px;
 }
-
 .contact-icon{
     width: 25px;
     height: 25px;
 }
-.map-wrapper {
-    height: 568px;
-}
-.map-timer-heading {
-    height: 56px;
-}
 .underline-link {
     text-decoration: none;
-}
-.timer-wrapper {
-    height: 123px;
 }
 .yaMap {
     display: none;
@@ -76,30 +54,20 @@
 .preloader-position {
     margin-top: 220px;
 }
-
-.navigation-box {
-    height: 312px;
-}
-.thought-box {
-    height: 190px;
-}
 .rotate-icon {
     transform: rotate(180deg);
     width: 11.29px;
 }
-.message-box {
-    height: 88px;
-}
 .send-box {
     height: 32px;
     background: #5095EC;
-}
-.post-box{
-    height: 56px;
 }
 .small-icon {
     height: 8.5px;
 }
 .alert-icon {
     width: 24px;
+}
+.list-marker {
+    list-style-type: none;
 }
