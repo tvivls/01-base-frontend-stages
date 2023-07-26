@@ -1,0 +1,73 @@
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/roboto-v30-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('fonts/roboto-v30-cyrillic_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/roboto-v30-cyrillic_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/roboto-v30-cyrillic_latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('fonts/roboto-v30-cyrillic_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/roboto-v30-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+.active-page {
+    background-color: #F1F1F1;
+}
+.font {
+    color: #505050;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+.big-font {
+    font-size: 18px;
+}
+.middle-font {
+    line-height: 19px;
+    font-size: 16px;
+}
+.small-font {
+    font-size: 14px;
+}
+.tiny-font {
+    font-size: 12px;
+}
+.nav-icon {
+    width: 232px;
+    height: 48px;
+}
+.top-indent {
+    margin-top: 136px;
+}
+.contact-icon{
+    width: 25px;
+    height: 25px;
+}
+.underline-link {
+    text-decoration: none;
+}
+.yaMap {
+    display: none;
+    height: 480px;
+}
+.preloader-position {
+    margin-top: 220px;
+}
+.rotate-icon {
+    transform: rotate(180deg);
+    width: 11.29px;
+}
+.send-box {
+    height: 32px;
+    background: #5095EC;
+}
+.small-icon {
+    height: 8.5px;
+}
+.alert-icon {
+    width: 24px;
+}
+.list-marker {
+    list-style-type: none;
+}
